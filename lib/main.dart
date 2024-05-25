@@ -1,10 +1,7 @@
-import 'package:chat/agent_detail.dart';
+
 import 'package:chat/agent_list.dart';
-import 'package:chat/agent_screen.dart';
-import 'package:chat/chat_screen.dart';
-import 'package:chat/minesweeper.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 Future <void> main() async {
   runApp(const MyApp());
