@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ChatService {
-  final String apiKey = "sk-proj-iKom5YVN6pfsfinRvYGoT3BlbkFJveoiE3P6OpHi6dni2UCO";
-
+  final String apiKey = "";
+// sk-proj-iKom5YVN6pfsfinRvYGoT3BlbkFJveoiE3P6OpHi6dni2UCO"
   Future<String> getResponse(String prompt) async {
     try {
       final response = await http.post(
