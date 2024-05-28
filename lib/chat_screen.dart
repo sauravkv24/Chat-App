@@ -31,6 +31,7 @@ class _ChatScreenUiState extends State<ChatScreenUi> {
     _chatService = ChatService();
     _scrollController = ScrollController();
     _loadMessages();
+    _scrollToBottom();
   }
 
   Future<void> _loadMessages() async {
@@ -40,7 +41,7 @@ class _ChatScreenUiState extends State<ChatScreenUi> {
       setState(() {
         _messages = messageData.map((e) => Map<String, dynamic>.from(jsonDecode(e))).toList();
       });
-      Future.delayed(Duration(milliseconds: 100), () => _scrollToBottom());
+      Future.delayed(const Duration(milliseconds: 100), () => _scrollToBottom());
     }
   }
 
@@ -64,11 +65,7 @@ class _ChatScreenUiState extends State<ChatScreenUi> {
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 100),
-          curve: Curves.easeOut,
-        );
+        _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
       }
     });
   }
